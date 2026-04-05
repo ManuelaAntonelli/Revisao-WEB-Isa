@@ -1,0 +1,212 @@
+/* root */
+:root {
+    --corPrincipalClara: cornflowerblue; 
+    --corSecundariaClara: rgb(137, 162, 208);
+    --corFonteClara: aliceblue;
+}
+
+/* body */
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* checks */
+
+#sidebarEsquerdaCHECK {
+    display: none;
+}
+
+#sidebarDireitaCHECK {
+    display: none;
+}
+
+/* Estrutura */
+
+header {
+    background-color: var(--corPrincipalClara);
+    color: var(--corFonteClara);
+
+    display: grid;
+    grid-row: 1;
+    grid-column: 1 / 13;
+
+
+}
+
+header p {
+    grid-column: 7;
+    font-size: x-large;
+    align-self: center;
+}
+
+header .sidebarEsquerdaBTN {
+
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1001;
+
+    border: 150px;
+    height: 50%;
+    margin: 20px;
+    grid-column: 1;
+
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+header .sidebarDireitaBTN {
+    grid-column: 12 / 13;
+    
+    position: relative;
+    z-index: 1001;
+
+    margin: 20px;
+    height: 50%;
+    cursor: pointer;
+    
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .sidebarDireitaBTN:hover, .sidebarEsquerdaBTN:hover {
+    background-color: var(--corSecundariaClara);
+}
+
+/* sidebar esquerda inativa */
+
+.sidebarEsquerda {
+    width: 250px;
+    height: 100%;
+
+
+    position: fixed;
+    left: -250px;
+
+    border-right: 2px solid rgba(40, 49, 57, 0.461);
+    background-color: var(--corFonteClara);
+
+    transition: 1s;
+
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+}
+
+/* sidebar esquerda ativa */
+
+#sidebarEsquerdaCHECK:checked ~ .sidebarEsquerda {
+    left: 0px;
+}
+
+.sidebarEsquerda a:first-child {
+    margin-top: 100px;
+}
+
+.sidebarEsquerda a {
+    background-color: aliceblue;
+    border-top: 1px solid rgba(40, 49, 57, 0.461);
+    height: 80px;
+    
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+
+
+    padding-left: 15px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#sidebarEsquerdaCHECK:checked ~ header .sidebarEsquerdaBTN:hover {
+    background-color: var(--corSecundariaClara);
+    color:rgba(40, 49, 57, 0.461)
+} 
+
+#sidebarEsquerdaCHECK:checked ~ header .sidebarEsquerdaBTN {
+    background-color: var(--corSecundariaClara);
+}
+
+/* sidebar direita inativa */
+
+.sidebarDireita {
+    width: 250px;
+    height: 100%;
+    grid-column: 12;
+
+    position: fixed;
+    right: -250px;
+    
+    border-left: 2px solid rgba(40, 49, 57, 0.461);
+    background-color: var(--corFonteClara);
+
+    transition: 1s;
+
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+}
+
+/* sidebar direita ativa */
+
+#sidebarDireitaCHECK:checked ~ .sidebarDireita { 
+    right: 0;
+}
+
+.sidebarDireita a:first-child {
+    margin-top: 100px;
+}
+
+.sidebarDireita a {
+    background-color: aliceblue;
+    border-top: 1px solid rgba(40, 49, 57, 0.461);
+    height: 80px;
+    
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+
+
+    padding-left: 15px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#sidebarDireitaCHECK:checked ~ header .sidebarDireitaBTN {
+    background-color: var(--corSecundariaClara);
+    color:rgba(40, 49, 57, 0.461)
+}
+
+#sidebarDireitaCHECK:checked ~ header .sidebarDireitaBTN:hover {
+    background-color: var(--corPrincipalClara);
+}
+
+/* conteudo */
+
+.conteudo {
+    grid-row: 4/10;
+    grid-column: 4/10 ;
+
+    background-color: rgb(222, 239, 255);
+    border-radius: 10%;
+    border-style: dashed;
+    border-color: var(--corPrincipalClara);
+
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    flex-direction: column;
+}

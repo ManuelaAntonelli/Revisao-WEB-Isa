@@ -1,0 +1,155 @@
+:root {
+    --corSideBar: hsl(256, 92%, 76%);
+    --corSideBarEscuro: hsl(274, 72%, 25%);
+
+    --corConteudo: rgb(231, 218, 234);
+    --corConteudoEscuro: rgb(112, 112, 113);
+
+    --corHeader: hsl(256, 100%, 82%);
+    --corHeaderEscuro: hsl(274, 72%, 25%);
+}
+
+/* ================= BODY ================= */
+
+body {
+    display: grid;
+
+    height: 100vh;
+    margin: 0;
+
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
+/* ================= INPUTS ================= */
+
+#menu {
+    display: none;
+}
+
+#modoEscuro {
+    display: none;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    grid-column: 1 / 13;
+    grid-row: 1;
+
+    background-color: var(--corHeader);
+}
+
+/* ================= BOTÃO ================= */
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    cursor: pointer;
+    z-index: 1001;
+
+    background-color: var(--corHeader);
+}
+
+.btn::before {
+    content: "☰";
+
+    font-size: 20px;
+    color: white;
+}
+
+#menu:checked ~ header .btn::before {
+    content: "✖";
+}
+
+.btnEscuro {
+    cursor: pointer;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px; 
+
+    width: 230px;
+    height: 100vh;
+
+    margin-left: -230px;
+
+    background-color: var(--corSideBar);
+
+    transition: 0.5s;
+}
+
+.sidebar a::first-child {
+    padding-top: 150px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: large;
+    color: aliceblue;
+
+    text-decoration: none;
+    
+}
+
+#menu:checked ~ .sidebar {
+    margin-left: 0;
+}
+
+/* ================= CONTEÚDO ================= */
+
+.conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    grid-column: 2 / 12;
+    grid-row: 4 / 9;
+
+    background-color: var(--corConteudo);
+}
+
+.conteudo p {
+    margin: 20px;
+}
+
+#menu:checked ~ .conteudo {
+    transition: 1s;
+    margin-left: 250px;
+}
+
+/* =============== MODO ESCURO ================ */
+
+body:has(#modoEscuro:checked) {
+    background-color: var(--corConteudoEscuro);
+}
+
+#modoEscuro:checked ~ header {
+    background-color: var(--corHeaderEscuro);
+}
+
+#modoEscuro:checked ~ .sidebar {
+    background-color: var(--corSideBarEscuro);
+}
+
+#modoEscuro:checked ~ header .btn {
+    background-color: var(--corSideBarEscuro);
+}

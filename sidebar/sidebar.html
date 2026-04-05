@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+
+    <link rel="stylesheet" href="sidebar.css">
+
+</head>
+<body>
+    <!-- 
+    input[type="checkbox"]
+    label (que funciona como botão)
+    seletor :checked 
+    IMPORTANTE: os elementos precisam estar no mesmo nível (irmãos)
+    -->
+    <input type="checkbox" id="menu">
+    <input type="checkbox" id="modoEscuro">
+    <header>
+        <label for="menu" class="btn"></label>
+        <a href="#">Teste1</a>
+        <a href="#">Teste2</a>
+        <a href="#">Teste3</a>
+        <label for="modoEscuro" class="btnEscuro">🌗</label>
+    </header>
+
+    <div class="sidebar">
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+    </div>
+
+    <div class="conteudo">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione atque illo culpa officia ex velit, dolor obcaecati molestiae nostrum consequatur consequuntur nisi. Voluptatem cumque saepe id accusantium impedit distinctio aliquam?</p>
+    </div>
+
+</body>
+</html>
