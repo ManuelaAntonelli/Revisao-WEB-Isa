@@ -1,0 +1,30 @@
+.retCirc {
+    width: 200px;
+    height: 100px;
+    background-color: #3498db;
+    border-radius: 0;
+    animation: rectToCircle 3s ease-in-out infinite;
+}
+
+@keyframes rectToCircle {
+    0% {
+      width: 200px;
+      height: 100px;
+      border-radius: 0;
+      background-color: #3498db;
+    }
+    100% {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%; /* Círculo */
+      background-color: #9a7b77;
+    }
+  }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+  }
