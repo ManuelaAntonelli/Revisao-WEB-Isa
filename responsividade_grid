@@ -1,0 +1,47 @@
+/* HTML */
+
+<div class="container">
+    <header class="header">
+    <aside class="sidebar">
+    <main class="main">
+    <footer class="footer">
+</div>
+
+/* CSS */
+
+.container {
+  display: grid;
+  gap: 10px;
+  /* Por padrão (mobile), uma única coluna */
+  grid-template-areas:
+    "header"
+    "main"
+    "sidebar"
+    "footer";
+}
+
+/* Posicionando os itens */
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+
+/* 2. FLEXBOX PARA ALINHAMENTO INTERNO (MICRO) */
+.header {
+  display: flex;
+  justify-content: space-between; /* Itens nas pontas */
+  align-items: center; /* Centralizar verticalmente */
+  padding: 1rem;
+}
+
+/* 3. RESPONSIVIDADE (MEDIA QUERY) */
+@media (min-width: 768px) {
+  .grid-container {
+    /* Em tablets/desktop, mudamos o layout */
+    grid-template-columns: 200px 1fr;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+}
